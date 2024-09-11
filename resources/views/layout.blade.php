@@ -48,24 +48,7 @@
             </div>
         </div>
         <!-- search and sort -->
-        <div class="w-full md:w-4/5 bg-white rounded-2xl h-screen my-5 mr-4 flex flex-col">
-            <div class="mt-11 ml-7">
-                <h1 class="font-roboto font-semibold text-medium text-[36px]">Contact</h1>
-            </div>
-            <div class="flex flex-row justify-between ml-7 mr-7">
-                <div class="search flex flex-row items-center bg-[#E5E5E5] rounded-lg">
-                    <span class="material-symbols-outlined bg-[#E5E5E5]">search</span>
-                    <input class="bg-[#E5E5E5] p-2 mr-2" type="search" placeholder="search...">
-                </div>
-                <div class="sort">
-                    <select class="w3-select bg-[#E5E5E5] p-2 rounded-lg" name="option" id="">
-                        <option value="a-z">A-Z</option>
-                        <option value="z-a">Z-A</option>
-                    </select>
-                </div>
-            </div>
-
-        </div>
+        @yield('content')
     </div>
 </body>
 
