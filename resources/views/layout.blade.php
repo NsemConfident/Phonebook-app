@@ -49,6 +49,8 @@
         </div>
         <!-- search and sort -->
         @yield('content')
+
+        <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.14.1/dist/cdn.min.js"></script>
     </div>
 </body>
 
