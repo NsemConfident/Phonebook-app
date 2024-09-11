@@ -9,4 +9,7 @@ class contact_controller extends Controller
     public function showContactDetail(){
         return view('detail');
     }
+    public function showCreatecontact(){
+        return view('create');
+    }
 }

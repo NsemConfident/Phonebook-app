@@ -8,3 +8,4 @@ Route::get('/', function () {
 });
 
 Route::get('/view', [contact_controller::class, 'showContactDetail'])->name('detail');
+Route::get('/create-contact', [contact_controller::class, 'showCreatecontact'])->name('create');
