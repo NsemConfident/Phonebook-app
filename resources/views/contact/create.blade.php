@@ -11,7 +11,9 @@
         <form action="{{route('contacts.store')}}" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="flex flex-row justify-between mt-5 mx-8">
-                <img src="{{asset('assets/maki_arrow.png')}}" alt="">
+                <a href="{{route('contacts.index')}}">
+                    <img src="{{asset('assets/maki_arrow.png')}}" alt="">
+                </a>
                 <div class="flex flex-row">
                     <button type="submit" class="flex items-center">
                         <div class="bg-[#463FF1] p-1 flex flex-row rounded-[5px] items-center">
