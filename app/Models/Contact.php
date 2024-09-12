@@ -12,7 +12,7 @@ class Contact extends Model
     protected $fillable = [
         'id',
         'first_name',
-        'last_name',
+        'second_name',
         'phone_number',
         'email',
         'category',

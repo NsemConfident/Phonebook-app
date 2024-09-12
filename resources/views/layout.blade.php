@@ -26,7 +26,7 @@
                 <h3 class="text-white font-semibold text-2xl">My Phonebook</h3>
             </div>
             <!-- create contact button -->
-            <a href="{{route('create')}}">
+            <a href="{{route('contacts.create')}}">
                 <div class="bg-[#272727] rounded-lg items-center p-2.5 flex flex-row gap-3 group hover:bg-white mb-5">
                     <div>
                         <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">

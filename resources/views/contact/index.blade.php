@@ -18,6 +18,7 @@
         </div>
     </div>
     <div class="mt-2 bg-[#F5F5F5] px-9">
+        @if (count($contacts) > 0)
         <table class="w-full md:my-6 text-left">
             <thead class="border-b-2">
                 <th class="">Name</th>
@@ -26,18 +27,30 @@
                 <th class="">Action</th>
             </thead>
             <tbody>
+                @foreach ($contacts as $contact)
                 <tr>
-                    <td class="py-4">John Doe</td>
-                    <td class="py-4">+237388737637</td>
-                    <td class="py-4">johndoe@gmail.com</td>
                     <td class="py-4">
-                        <a href="{{route('detail')}}">
-                            <img src="{{asset('assets/edit.png')}}" alt="">
+                        <a href="{{route('contacts.show', parameters: $contact->id)}}">
+                            <div class="flex flex-row gap-2 font-bold items-center">
+                                <img src="{{asset( 'storage/images/' . $contact->image)}}" alt="" class="rounded-full w-12 h-12">
+                                <span>{{$contact->first_name}} {{$contact->second_name}}</span>
+                            </div>
+                        </a>
+                    </td>
+                    <td class="py-4 font-bold">{{$contact->phone_number}}</td>
+                    <td class="py-4 font-bold">{{$contact->email}}</td>
+                    <td class="py-4 font-bold">
+                        <a href="{{route('contacts.edit', parameters: $contact->id)}}">
+                            <img src="{{asset('assets/edit.png')}}" alt="" class="w-6">
                         </a>
                     </td>
                 </tr>
+                @endforeach
             </tbody>
         </table>
+        @else
+        <p class="font-bold text-base justify-center flex items-center">No Contact Found</p>
+        @endif
     </div>
 </div>
 @endsection
