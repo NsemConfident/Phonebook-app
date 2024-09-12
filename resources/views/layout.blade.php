@@ -26,18 +26,20 @@
                 <h3 class="text-white font-semibold text-2xl">My Phonebook</h3>
             </div>
             <!-- create contact button -->
-            <div class="bg-[#272727] rounded-lg items-center p-2.5 flex flex-row gap-3 group hover:bg-white mb-5">
-                <div>
-                    <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <rect width="40" height="40" rx="10" fill="#2B2881" />
-                        <path d="M31.6666 21.6633H21.6666V31.6633H18.3333V21.6633H8.33331V18.33H18.3333V8.32996H21.6666V18.33H31.6666V21.6633Z" fill="white" />
-                    </svg>
+            <a href="{{route('contacts.create')}}">
+                <div class="bg-[#272727] rounded-lg items-center p-2.5 flex flex-row gap-3 group hover:bg-white mb-5">
+                    <div>
+                        <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect width="40" height="40" rx="10" fill="#2B2881" />
+                            <path d="M31.6666 21.6633H21.6666V31.6633H18.3333V21.6633H8.33331V18.33H18.3333V8.32996H21.6666V18.33H31.6666V21.6633Z" fill="white" />
+                        </svg>
+                    </div>
+                    <div>
+                        <p class="font-normal text-sm text-[#A3A3A3] group-hover:text-black">Create new</p>
+                        <p class="text-base font-medium text-white  group-hover:text-black">Contact</p>
+                    </div>
                 </div>
-                <div>
-                    <p class="font-normal text-sm text-[#A3A3A3] group-hover:text-black">Create new</p>
-                    <p class="text-base font-medium text-white  group-hover:text-black">Contact</p>
-                </div>
-            </div>
+            </a>
             <!-- contact button -->
             <div class="bg-[#272727] rounded-lg items-center flex flex-row p-2.5">
                 <svg width="29" height="29" viewBox="0 0 29 29" fill="none" xmlns="http://www.w3.org/2000/svg">
