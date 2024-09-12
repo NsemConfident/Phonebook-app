@@ -8,21 +8,24 @@
     <!-- left arrow and edit button -->
     <div class=" h-5/6 bg-[#F5F5F5] border-t-[#B6B6B6] border-2 rounded-b-2xl">
         <div class="flex flex-row justify-between mt-5 mx-8">
-            <img src="{{asset('assets/maki_arrow.png')}}" alt="">
+            <a href="{{route('contacts.index')}}">
+                <img src="{{asset('assets/maki_arrow.png')}}" alt="">
+            </a>
             <div class="flex flex-row">
                 <div class="flex items-center">
                     <a href="{{route('contacts.edit', parameters: $contact->id)}}" class="bg-[#463FF1] p-1 flex flex-row rounded-[5px] items-center">
                         <span class="text-white p-2">Edit Contact</span>
                         <img class="px-2 h-4" src="{{asset('assets/sm_edit.png')}}" alt="">
                     </a>
-
-                    <form action="{{ route('contacts.destroy', $contact->id) }}" method="POST" onsubmit="return confirm('Are you sure you want to delete this contact?');">
-                        @csrf
-                        @method('DELETE')
-                        <button type="submit">
-                            <img class="px-2" src="{{ asset('assets/uiw_delete.png') }}" alt="Delete">
-                        </button>
-                    </form>
+                    <!-- delete modal toggle in delete button -->
+                        <form action="{{ route('contacts.destroy', $contact->id) }}" method="POST">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" data-modal-target="delete-modal" data-modal-toggle="delete-modal" data-modal-hide="delete-modal">
+                                <img class="px-2" src="{{ asset('assets/uiw_delete.png') }}" alt="Delete">
+                            </button>
+                        </form>
+                   
 
                 </div>
             </div>
@@ -79,6 +82,20 @@
         </div>
     </div>
 </div>
+
+<!-- Delete modal -->
+
+<div id="delete-modal" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
+    <svg width="37" height="39" viewBox="0 0 37 39" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M11.9514 29.0739L18.3592 22.2818L24.767 29.0739L27.2589 26.4325L20.8511 19.6404L27.2589 12.8483L24.767 10.2069L18.3592 16.999L11.9514 10.2069L9.45952 12.8483L15.8673 19.6404L9.45952 26.4325L11.9514 29.0739ZM18.3592 38.5074C15.897 38.5074 13.583 38.0118 11.4175 37.0207C9.25186 36.0295 7.36809 34.6856 5.76614 32.9888C4.1642 31.292 2.89628 29.2953 1.96241 26.9985C1.02853 24.7018 0.561003 22.2491 0.559817 19.6404C0.55863 17.0317 1.02616 14.579 1.96241 12.2823C2.89866 9.98555 4.16657 7.9888 5.76614 6.29203C7.36571 4.59526 9.24949 3.2513 11.4175 2.26016C13.5854 1.26901 15.8993 0.773438 18.3592 0.773438C20.8191 0.773437 23.133 1.26901 25.301 2.26016C27.4689 3.2513 29.3527 4.59526 30.9523 6.29203C32.5519 7.9888 33.8204 9.98555 34.7578 12.2823C35.6952 14.579 36.1622 17.0317 36.1586 19.6404C36.1551 22.2491 35.6875 24.7018 34.756 26.9985C33.8245 29.2953 32.5566 31.292 30.9523 32.9888C29.348 34.6856 27.4642 36.0302 25.301 37.0226C23.1378 38.015 20.8238 38.5099 18.3592 38.5074ZM18.3592 34.734C22.3344 34.734 25.7015 33.2718 28.4604 30.3474C31.2193 27.423 32.5987 23.854 32.5987 19.6404C32.5987 15.4268 31.2193 11.8578 28.4604 8.9334C25.7015 6.00902 22.3344 4.54683 18.3592 4.54683C14.384 4.54683 11.017 6.00902 8.25806 8.9334C5.49915 11.8578 4.1197 15.4268 4.1197 19.6404C4.1197 23.854 5.49915 27.423 8.25806 30.3474C11.017 33.2718 14.384 34.734 18.3592 34.734Z" fill="#463FF1" />
+    </svg>
+    <h1 class="text-base font-roboto font-bold test-[#463FF1]">Delete Contact</h1>
+    <h6>this contact willl be deleted permanently. <br>Are you sure you want to delete? </h6>
+
+    <button class="px-[201] py-2 bg-[#463FF1]" data-modal-hide="delete-modal" type="button">Yes</button>
+    <button class="px-[201] py-2 bg-white border-2 border-[#463FF1]" data-modal-hide="delete-modal" type="button">Cancel</button>
+</div>
+
 
 
 @endsection
