@@ -11,10 +11,26 @@ class ContactController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        $contacts = Contact::all();
-        return view('contact.index', compact('contacts'));
+        $search = $request->input('search', '');
+
+        $filter = $request->input('filter', 'a-z');
+
+        if ($search) {
+            if (!empty($search)) {
+                $contacts = Contact::where('first_name', 'LIKE', "%{$search}%")->orWhere('second_name', 'LIKE', "%{$search}%")->orWhere('phone_number', 'LIKE', "%{$search}%")->get();
+            } else {
+                $contacts = Contact::all();
+            }
+        } else {
+            if ($filter === 'z-a') {
+                $contacts = Contact::orderBy('first_name', 'asc')->get();
+            } else {
+                $contacts = Contact::orderBy('first_name', 'desc')->get();
+            }
+        }
+        return view('contact.index', compact('contacts', 'search', 'filter'));
     }
 
     /**
@@ -141,5 +157,4 @@ class ContactController extends Controller
 
         return redirect()->route('contacts.index')->with('message', 'Contact deleted successfully');
     }
-    
 }

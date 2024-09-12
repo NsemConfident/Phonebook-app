@@ -6,14 +6,17 @@
         <h1 class="font-roboto font-semibold text-medium text-[36px]">Contact</h1>
     </div>
     <div class="flex flex-row justify-between ml-7 mr-7">
-        <div class="search flex flex-row items-center bg-[#E5E5E5] rounded-lg">
-            <span class="material-symbols-outlined bg-[#E5E5E5]">search</span>
-            <input class="bg-[#E5E5E5] p-2 mr-2 focus:ring-none" type="search" placeholder="search...">
-        </div>
+        <form action="{{route('contacts.index')}}" method="GET">
+            @csrf
+            <div class="search flex flex-row items-center bg-[#E5E5E5] rounded-lg">
+                <span class="material-symbols-outlined bg-[#E5E5E5]">search</span>
+                <input class="bg-[#E5E5E5] p-2 mr-2 focus:ring-none" name="search" id="search" value="{{$search}}" type="search" placeholder="search...">
+            </div>
+        </form>
         <div class="sort">
             <select class="w3-select bg-[#E5E5E5] p-2 rounded-lg" name="option" id="">
-                <option value="a-z">A-Z</option>
-                <option value="z-a">Z-A</option>
+                <option value="a-z"><a href="{{route('contacts.index', ['filter' => 'a-z'])}}">A-Z</a></option>
+                <option value="z-a"><a href="{{route('contacts.index', ['filter' => 'z-a'])}}">Z-A</a></option>
             </select>
         </div>
     </div>
