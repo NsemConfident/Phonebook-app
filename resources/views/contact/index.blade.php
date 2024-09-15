@@ -13,10 +13,20 @@
                 <input class="bg-[#E5E5E5] p-2 mr-2 focus:ring-none" name="search" id="search" value="{{$search}}" type="search" placeholder="search...">
             </div>
         </form>
-        <div class="sort">
-            <ul class="w3-select drop-down bg-[#E5E5E5] p-2 rounded-lg" name="filter" id="">
-                <li><a href="{{route('contacts.index', ['filter' => 'a-z'])}}">Z-A</a></li>
-                <li><a href="{{route('contacts.index', ['filter' => 'z-a'])}}">A-Z</a></li>
+        <button class="flex flex-row space-x-1 items-center justify-around rounded-lg w-[149px] p-2 mx-4 bg-[#E5E5E5]" id="dropdownDefaultButton" data-dropdown-trigger="hover" data-dropdown-toggle="dropdown">
+            Sort:A-Z
+            <svg class="w-2.5 h-2.5 ms-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4" />
+            </svg>
+        </button>
+        <div id="dropdown">
+            <ul name="filter" id="">
+                <li class="bg-[#E5E5E5] p-2 rounded-lg w-[149px] text-center my-1">
+                    <a href="{{route('contacts.index', ['filter' => 'z-a'])}}" class="hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">A-Z</a>
+                </li>
+                <li class="bg-[#E5E5E5] p-2 rounded-lg w-[149px] text-center">
+                    <a href="{{route('contacts.index', ['filter' => 'a-z'])}}" class="hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Z-A</a>
+                </li>
             </ul>
         </div>
     </div>
