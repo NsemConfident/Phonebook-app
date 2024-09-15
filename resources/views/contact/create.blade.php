@@ -66,6 +66,7 @@
                                 <path d="M6.89583 11.2396C8.39583 14.1875 10.8125 16.5937 13.7604 18.1042L16.0521 15.8125C16.3333 15.5312 16.75 15.4375 17.1146 15.5625C18.2813 15.9479 19.5417 16.1562 20.8333 16.1562C21.4062 16.1562 21.875 16.625 21.875 17.1979V20.8333C21.875 21.4062 21.4062 21.875 20.8333 21.875C11.0521 21.875 3.125 13.9479 3.125 4.16667C3.125 3.59375 3.59375 3.125 4.16667 3.125H7.8125C8.38542 3.125 8.85417 3.59375 8.85417 4.16667C8.85417 5.46875 9.0625 6.71875 9.44792 7.88542C9.5625 8.25 9.47917 8.65625 9.1875 8.94792L6.89583 11.2396Z" fill="black" />
                             </svg>
                             <!-- ===========country code input============= -->
+                            <!--                              
                             <div class="flex items-center w-[60px] mx-2">
                                 <button id="dropdown-phone-button" data-dropdown-toggle="dropdown-phone" class="flex-shrink-0 z-10 inline-flex items-center py-2.5 px-2 text-sm font-medium text-center text-gray-900 bg-gray-100 border border-gray-300 rounded-s-lg hover:bg-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-100 dark:bg-gray-700 dark:hover:bg-gray-600 dark:focus:ring-gray-700 dark:text-white dark:border-gray-600" type="button">
                                     <svg fill="none" aria-hidden="true" class="h-4 w-4 me-2" viewBox="0 0 20 15">
@@ -283,9 +284,9 @@
                                         </li>
                                     </ul>
                                 </div>
-                            </div>
+                            </div> -->
                             <!-- ============ dropdown ============ -->
-                            <input class="bg-[#CCCCCC] px-2 py-2 rounded-md w-[300px] ml-4" type="number" name="phone_number" required>
+                            <input class="bg-[#CCCCCC] px-2 py-2 rounded-md w-[300px] ml-4" type="number" id="phone_number" name="phone_number" required>
                         </div>
                         <div class=" flex flex-row items-center mt-2">
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -310,15 +311,24 @@
         </form>
     </div>
 </div>
-<script>
+<scrip>
     function handlePhotoUpload(event) {
-        const file = event.target.files[0];
-        const reader = new FileReader();
-        reader.onload = function(e) {
-            document.getElementById('photo-preview').src = e.target.result;
-        };
-        reader.readAsDataURL(file);
+    const file = event.target.files[0];
+    const reader = new FileReader();
+    reader.onload = function(e) {
+    document.getElementById('photo-preview').src = e.target.result;
+    };
+    reader.readAsDataURL(file);
     }
-</script>
+    </script>
+    <!-- ====================handle country code script ========== -->
 
-@endsection
+    <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@24.5.0/build/js/intlTelInput.min.js"></script>
+    <script>
+        const input = document.querySelector("#phone_number");
+        window.intlTelInput(input, {
+            utilsScript: "https://cdn.jsdelivr.net/npm/intl-tel-input@24.5.0/build/js/utils.js",
+        });
+    </script>
+
+    @endsection

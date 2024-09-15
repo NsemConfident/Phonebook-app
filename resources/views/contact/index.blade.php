@@ -14,10 +14,10 @@
             </div>
         </form>
         <div class="sort">
-            <select class="w3-select bg-[#E5E5E5] p-2 rounded-lg" name="option" id="">
-                <option value="a-z"><a href="{{route('contacts.index', ['filter' => 'a-z'])}}">A-Z</a></option>
-                <option value="z-a"><a href="{{route('contacts.index', ['filter' => 'z-a'])}}">Z-A</a></option>
-            </select>
+            <ul class="w3-select drop-down bg-[#E5E5E5] p-2 rounded-lg" name="filter" id="">
+                <li><a href="{{route('contacts.index', ['filter' => 'a-z'])}}">Z-A</a></li>
+                <li><a href="{{route('contacts.index', ['filter' => 'z-a'])}}">A-Z</a></li>
+            </ul>
         </div>
     </div>
     <div class="mt-2 bg-[#F5F5F5] px-9">
